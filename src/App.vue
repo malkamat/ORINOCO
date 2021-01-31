@@ -1,33 +1,49 @@
 <template>
   <div id="app">
-  <compteur></compteur>
-  <test></test>
-  <produits></produits>
+    <navbar></navbar>
+   <transition name="slide-fade" mode="out-in">
+     <router-view></router-view>
+    </transition>
+    <footer-bottom></footer-bottom>
   </div>
 </template>
 
 <script>
-import Compteur from './components/Compteur.vue'
-import Produits from './components/Produits.vue'
-import Test from './components/Test.vue'
+
+import NavBar from './components/NavBar/NavBar.vue'
+import Footer from './components/Footer/Footer.vue'
+
 
 export default {
   name: 'App',
   components: {
-    "compteur": Compteur,
-    "test": Test,
-    "produits": Produits
+    "navbar" : NavBar,
+    "footer-bottom": Footer,
+
   }
 }
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-color: #f1f1f1;
+  min-height: 100vh;
+}
+
+/* transitions */
+
+.slide-fade-enter {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.25s ease;
+}
+
+.slide-fade-leave-to {
+  transform: translateX(-10px);
+  opacity: 0;
 }
 </style>

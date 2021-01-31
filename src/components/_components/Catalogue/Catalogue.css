@@ -1,0 +1,14 @@
+button {
+    width: 90%;
+    
+}
+
+.card img {
+    height: 250px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+a {
+    cursor: pointer;
+}
